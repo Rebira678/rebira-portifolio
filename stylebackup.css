@@ -394,7 +394,6 @@ ul {
 }
 
 
-/* Mobile-friendly navbar */
 #menu-toggle {
   display: none;
 }
@@ -408,55 +407,68 @@ ul {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
-  background-color: #171717;
-  color: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+  justify-content: space-between;
+  padding: 15px;
+  background: black;
+  flex-wrap: wrap;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-}
-
-.nav-links li a {
+.logo {
   color: white;
+  font-size: 20px;
   text-decoration: none;
 }
 
-.nav-links li a:hover {
+/* Grid menu hidden by default */
+.nav-grid {
+  display: none;
+  width: 100%;
+  gap: 10px;
+  margin-top: 10px;
+  background-color: rgba(23, 23, 23, 0.95);
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Show grid menu when toggled */
+#menu-toggle:checked + .menu-icon + .nav-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Menu items */
+.nav-grid a label {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: #222;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-grid a label:hover {
+  background-color: #333;
   color: #7cf03d;
 }
 
-/* Responsive behavior */
+/* Mobile only */
+@media (min-width: 769px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .nav-grid {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: rgba(23, 23, 23, 0.95);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 15px 0;
-  }
-
-  #menu-toggle:checked + .menu-icon + .nav-links {
-    display: flex;
-  }
-
-  .nav-links li {
-    text-align: center;
-    padding: 10px 0;
   }
 }
