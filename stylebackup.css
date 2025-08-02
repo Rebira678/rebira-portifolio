@@ -584,3 +584,90 @@ body {
   padding-top: 100px;
   text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Show full horizontal nav on desktop */
+@media (min-width: 769px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .nav-grid {
+    display: flex !important;
+    gap: 25px;
+    background: none;
+    padding: 0;
+  }
+  .nav-grid label {
+    background: none;
+    border-radius: 0;
+  }
+  .nav-grid label a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  .nav-grid label:hover a {
+    color: #7cf03d;
+  }
+}
+
+/* On mobile, nav-grid is grid hidden by default, shows when #menu-toggle checked */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 28px;
+    color: #7cf03d;
+  }
+
+  .nav-grid {
+    display: none;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+    background-color: rgba(23, 23, 23, 0.95);
+    padding: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-grid {
+    display: grid;
+  }
+
+  .nav-grid label {
+    background: #222;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .nav-grid label:hover {
+    background-color: #333;
+    color: #7cf03d;
+  }
+
+  /* Make links inside labels full size and clickable */
+  .nav-grid label a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
