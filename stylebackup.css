@@ -393,7 +393,6 @@ ul {
   z-index: 1000; /* already present, this is good */
 }
 
-
 #menu-toggle {
   display: none;
 }
@@ -471,4 +470,117 @@ ul {
   .menu-icon {
     display: block;
   }
+}
+.navbar ul {
+    display: none; /* Hide the original menu */
+  }
+
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .navbar ul li a {
+    padding: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+  }
+/* Reset and basics */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0e0b0bd2;
+  color: white;
+}
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1f1f1f;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  flex-grow: 1;
+  color: white;
+  text-decoration: none;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Hamburger menu icon */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+/* Navigation grid (desktop default) */
+.nav-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-grid a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-grid {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #1f1f1f;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  /* Show menu grid when checkbox is checked */
+  #menu-toggle:checked + .menu-icon + .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  /* Style for menu links on mobile */
+  .nav-grid a label {
+    display: block;
+    padding: 8px;
+    text-align: center;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+/* Section padding so content is below fixed navbar */
+.section-home {
+  padding-top: 100px;
+  text-align: center;
 }
